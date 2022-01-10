@@ -1,0 +1,7 @@
+C:\Users\ehuabia\Desktop\WindowsFormsApp3\ExcelHelp\bin\Debug\ExcelHelp.dll
+C:\Users\ehuabia\Desktop\WindowsFormsApp3\ExcelHelp\bin\Debug\ExcelHelp.pdb
+C:\Users\ehuabia\Desktop\WindowsFormsApp3\ExcelHelp\obj\Debug\ExcelHelp.csproj.CoreCompileInputs.cache
+C:\Users\ehuabia\Desktop\WindowsFormsApp3\ExcelHelp\obj\Debug\ExcelHelp.dll
+C:\Users\ehuabia\Desktop\WindowsFormsApp3\ExcelHelp\obj\Debug\ExcelHelp.pdb
+C:\Users\ehuabia\Desktop\WindowsFormsApp3\ExcelHelp\obj\Debug\ExcelHelp.csproj.CopyComplete
+C:\Users\ehuabia\Desktop\WindowsFormsApp3\ExcelHelp\obj\Debug\ExcelHelp.csprojAssemblyReference.cache
