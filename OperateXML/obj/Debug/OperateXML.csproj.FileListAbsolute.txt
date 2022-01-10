@@ -1,0 +1,6 @@
+C:\Users\86188\Desktop\WindowsFormsApp1\OperateXML\obj\Debug\OperateXML.csproj.AssemblyReference.cache
+C:\Users\86188\Desktop\WindowsFormsApp1\OperateXML\obj\Debug\OperateXML.csproj.CoreCompileInputs.cache
+C:\Users\86188\Desktop\WindowsFormsApp1\OperateXML\bin\Debug\OperateXML.dll
+C:\Users\86188\Desktop\WindowsFormsApp1\OperateXML\bin\Debug\OperateXML.pdb
+C:\Users\86188\Desktop\WindowsFormsApp1\OperateXML\obj\Debug\OperateXML.dll
+C:\Users\86188\Desktop\WindowsFormsApp1\OperateXML\obj\Debug\OperateXML.pdb

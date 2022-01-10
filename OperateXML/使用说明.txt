@@ -1,0 +1,114 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Xml;
+using System.Xml.Serialization;
+
+namespace WindowsFormsApp1
+{
+    [Serializable]
+    public  class SysConfigXml
+    {
+        private DBCfg localDBCfg = new DBCfg();
+        private SystemDeviceConfig systemDeviceCfg = new SystemDeviceConfig();
+        [XmlElement("DB")]
+        public DBCfg LocalDBCfg { get => localDBCfg; set => localDBCfg = value; }
+        [XmlElement("SystemDevice")]
+        public SystemDeviceConfig SystemDeviceCfg { get => systemDeviceCfg; set => systemDeviceCfg = value; }
+    }
+
+
+    [Serializable]
+    public class DBCfg
+    {
+
+        private string hostIP = "127.0.0.1";
+        private string port = "3306";
+        private string dBName = "FullyMechanizedDB";
+        private string userName = "root";
+        private string passWord = "root";
+        private int dBType = 0;
+        private int connectTime = 30;
+
+
+        [XmlElement("HostIP")]
+        public string HostIP { get => hostIP; set => hostIP = value; }
+        [XmlElement("Port")]
+        public string Port { get => port; set => port = value; }
+        [XmlElement("DBName")]
+        public string DBName { get => dBName; set => dBName = value; }
+        [XmlElement("UserName")]
+        public string UserName { get => userName; set => userName = value; }
+        [XmlElement("PassWord")]
+        public string PassWord { get => passWord; set => passWord = value; }
+        [XmlElement("DBType")]
+        public int DBType { get => dBType; set => dBType = value; }
+        [XmlElement("ConnectTime")]
+        public int ConnectTime { get => connectTime; set => connectTime = value; }
+    }
+
+
+    public class SystemDeviceConfig
+    {
+        private bool isConnectCamear = false;   //是否加载相机
+        private bool isConnectShearer = false;  //是否加载采煤机
+        private bool isConnectPumpStation = false;   //是否加载泵站
+        private bool isConnectSupptor = false;  //是否加载支架电液控
+        private bool isConnectThreeDevice = false;  //是否加载三机、皮带等设备
+
+        private bool isPLCAdress_Shearer = false;  //采煤机是否是PLC地址
+        private bool isPLCAdress_Supptor = false;   //支架是否是PLC地址
+        private bool isPLCAdress_Pump = false;      //泵站是否是PLC地址
+        private bool isPLCAdress_ThreeDevice = false;//三机是否是PLC地址
+        private bool isPLCAdress_ConsolePlat = false; //控制台是否是PLC地址
+        private bool isPLCAdress_ControlCommand = false; //控制命令是否是PLC地址
+        private bool isPLCAdress_CombinSwitch = false; //组合开关是否是PLC地址
+        [XmlElement("IsConnectCamear")]
+        public bool IsConnectCamear { get => isConnectCamear; set => isConnectCamear = value; }
+        [XmlElement("IsConnectShearer")]
+        public bool IsConnectShearer { get => isConnectShearer; set => isConnectShearer = value; }
+        [XmlElement("IsConnectPumpStation")]
+        public bool IsConnectPumpStation { get => isConnectPumpStation; set => isConnectPumpStation = value; }
+        [XmlElement("IsConnectSupptor")]
+        public bool IsConnectSupptor { get => isConnectSupptor; set => isConnectSupptor = value; }
+        [XmlElement("isConnectThreeDevice")]
+        public bool IsConnectThreeDevice { get => isConnectThreeDevice; set => isConnectThreeDevice = value; }
+
+        [XmlElement("isPLCAdress_Shearer")]
+        public bool IsPLCAdress_Shearer { get => isPLCAdress_Shearer; set => isPLCAdress_Shearer = value; }
+        [XmlElement("isPLCAdress_Supptor")]
+        public bool IsPLCAdress_Supptor { get => isPLCAdress_Supptor; set => isPLCAdress_Supptor = value; }
+        [XmlElement("isPLCAdress_Pump")]
+        public bool IsPLCAdress_Pump { get => isPLCAdress_Pump; set => isPLCAdress_Pump = value; }
+        [XmlElement("isPLCAdress_ThreeDevice")]
+        public bool IsPLCAdress_ThreeDevice { get => isPLCAdress_ThreeDevice; set => isPLCAdress_ThreeDevice = value; }
+        [XmlElement("isPLCAdress_ConsolePlat")]
+        public bool IsPLCAdress_ConsolePlat { get => isPLCAdress_ConsolePlat; set => isPLCAdress_ConsolePlat = value; }
+        [XmlElement("isPLCAdress_ControlCommand")]
+        public bool IsPLCAdress_ControlCommand { get => isPLCAdress_ControlCommand; set => isPLCAdress_ControlCommand = value; }
+        [XmlElement("IsPLCAdress_CombinSwitch")]
+        public bool IsPLCAdress_CombinSwitch { get => isPLCAdress_CombinSwitch; set => isPLCAdress_CombinSwitch = value; }
+
+    }
+}
+
+定义对应XML的每一项
+
+然后这样使用
+
+            string fileName = "SysMainConfig.xml";
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            string fullPath = Path.Combine(path,fileName);
+            XMLOperate configMgr = new XMLOperate();
+            UIStaticInfo.SysConfig = configMgr.GetSystemConfig<SysConfigXml>(path,fileName);
+
+            DBCfg dbc = new DBCfg();
+            dbc = UIStaticInfo.SysConfig.LocalDBCfg;
+
+            dbc.DBName = "bhh";
+
+            configMgr.SaveSystemConfig<SysConfigXml>(UIStaticInfo.SysConfig,fullPath);
+
+可以读取  保存对应的项。
+
+
